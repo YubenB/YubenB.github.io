@@ -1,6 +1,5 @@
 body {
-  font-family: "Raleway", sans-serif;
-  color: black; /* Ensures all text is black */
+  color: black;
   background-color: rgb(7, 8, 39);
   margin: 0;
   padding: 0;
@@ -140,6 +139,16 @@ p,
   text-align: center;
   width: 80%;
   max-width: 500px;
+  max-height: 500px;
+}
+
+.date-display {
+  cursor: pointer;
+  user-select: none;
+  background-color: transparent;
+  border: none;
+  padding: 0;
+  font: inherit;
 }
 
 .event-details {
@@ -148,13 +157,14 @@ p,
 
 .event-info input[type="text"],
 .event-info input[type="date"] {
+  font-family: "Raleway", sans-serif;
   font-size: 16px;
 }
 
 .event-info input[type="text"]:focus,
 .event-info input[type="date"]:focus {
-  outline: none; /* Removes the default outline that browsers add */
-  box-shadow: none; /* Optionally remove the box-shadow if it was used */
+  outline: none;
+  box-shadow: none;
 }
 
 .event-info {
@@ -173,15 +183,105 @@ p,
 }
 
 .event-info button {
+  font-family: "Raleway", sans-serif;
   background-color: blueviolet;
   color: white;
   border: 0;
   border-radius: 20px;
   padding: 5px 10px;
+  transition: opacity 0.2s ease;
+}
+
+.event-info button:hover {
+  cursor: pointer;
+  opacity: 0.7;
+}
+
+.event-info button:active {
+  opacity: 0.5;
+}
+
+#message {
+  color: green;
+  font-size: 16px;
+  margin-top: 10px;
+}
+
+#message.error {
+  color: red;
+}
+
+#message.success {
+  color: green;
 }
 
 .upcoming-events {
   background-color: rgba(255, 255, 255, 0.1);
   padding: 10px;
   border-radius: 5px;
+  max-height: 210px;
+  overflow-y: auto;
+}
+
+.upcoming-events::-webkit-scrollbar {
+  width: 5px;
+}
+
+.upcoming-events::-webkit-scrollbar-thumb {
+  background-color: #c8c5c5;
+  border-radius: 5px;
+}
+
+.upcoming-events::-webkit-scrollbar-thumb:hover {
+  background-color: #555;
+}
+
+.event-item {
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  border-bottom: 1px solid #ddd;
+}
+
+.event-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.edit-btn,
+.delete-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  margin: 0 5px;
+  display: flex;
+  align-items: center;
+}
+
+.edit-btn img,
+.delete-btn img {
+  width: 20px;
+  height: auto;
+}
+
+.event-name {
+  font-family: "Raleway", sans-serif;
+  color: black;
+  flex: 2;
+  text-align: left;
+}
+
+.event-date {
+  font-family: "Raleway", sans-serif;
+  color: black;
+  flex: 2;
+  text-align: center;
+}
+
+#eventDate:hover {
+  cursor: pointer;
+  user-select: none;
 }
