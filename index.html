@@ -1,8 +1,15 @@
 <html>
   <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Event Reminder</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap"
+      rel="stylesheet"
+    />
     <link rel="stylesheet" href="/style/style.css" />
+    <title>Event Reminder</title>
   </head>
   <body>
     <ul class="background">
@@ -24,13 +31,13 @@
         <div class="event-info">
           <input type="text" id="eventName" placeholder="Event Name" />
           <input type="date" id="eventDate" placeholder="Event Date" />
-          <button id="setReminder" onclick="onSubmit(event)">
-            Set Reminder
-          </button>
+          <button id="setReminder">Set Reminder</button>
         </div>
       </div>
-      <h2>Upcoming Events</h2>
+      <h2 class="upcoming-events-header">Upcoming Events</h2>
       <div class="upcoming-events"></div>
+      <div class="no-events-message"></div>
+      <div id="message"></div>
     </div>
     <script src="/script/index.js"></script>
   </body>
