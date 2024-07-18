@@ -40,6 +40,7 @@ body {
   padding: 0;
   overflow: hidden;
 }
+
 .background li {
   position: absolute;
   display: block;
@@ -57,6 +58,7 @@ body {
   bottom: -296px;
   animation-delay: 1s;
 }
+
 .background li:nth-child(1) {
   left: 77%;
   width: 82px;
@@ -64,6 +66,7 @@ body {
   bottom: -82px;
   animation-delay: 3s;
 }
+
 .background li:nth-child(2) {
   left: 9%;
   width: 362px;
@@ -71,6 +74,7 @@ body {
   bottom: -362px;
   animation-delay: 9s;
 }
+
 .background li:nth-child(3) {
   left: 10%;
   width: 478px;
@@ -78,6 +82,7 @@ body {
   bottom: -478px;
   animation-delay: 9s;
 }
+
 .background li:nth-child(4) {
   left: 31%;
   width: 241px;
@@ -85,6 +90,7 @@ body {
   bottom: -241px;
   animation-delay: 1s;
 }
+
 .background li:nth-child(5) {
   left: 52%;
   width: 475px;
@@ -92,6 +98,7 @@ body {
   bottom: -475px;
   animation-delay: 8s;
 }
+
 .background li:nth-child(6) {
   left: 31%;
   width: 240px;
@@ -99,6 +106,7 @@ body {
   bottom: -240px;
   animation-delay: 27s;
 }
+
 .background li:nth-child(7) {
   left: 30%;
   width: 251px;
@@ -106,6 +114,7 @@ body {
   bottom: -251px;
   animation-delay: 5s;
 }
+
 .background li:nth-child(8) {
   left: 26%;
   width: 179px;
@@ -113,6 +122,7 @@ body {
   bottom: -179px;
   animation-delay: 3s;
 }
+
 .background li:nth-child(9) {
   left: 75%;
   width: 304px;
@@ -284,4 +294,38 @@ p,
 #eventDate:hover {
   cursor: pointer;
   user-select: none;
+}
+
+@media (max-width: 600px) {
+  .center-box {
+    width: 90%;
+    padding: 10px;
+    max-height: none;
+  }
+
+  .event-info {
+    flex-direction: column;
+    gap: 5px;
+  }
+
+  .event-info input,
+  .event-info button {
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  .event-item {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .event-name,
+  .event-date {
+    text-align: left;
+    flex: none;
+  }
+
+  .upcoming-events {
+    max-height: 300px;
+  }
 }

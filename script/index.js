@@ -18,6 +18,14 @@ const onSubmit = (event) => {
     return;
   }
 
+  const today = new Date();
+  const inputDate = new Date(eventDate);
+
+  if (inputDate < today) {
+    alert("Cannot set event on the past.");
+    return;
+  }
+
   const [year, month, day] = eventDate.split("-");
   const formattedDate = `${day}-${month}-${year}`;
 
@@ -38,8 +46,13 @@ const updateEventList = () => {
   const noEventsMessageDiv = document.querySelector(".no-events-message");
 
   upcomingEventsDiv.innerHTML = "";
+  noEventsMessageDiv.textContent = "";
 
-  const today = new Date().toLocaleDateString("en-GB").replace(/\//g, "-");
+  const today = new Date()
+    .toLocaleDateString("en-GB")
+    .split("/")
+    .reverse()
+    .join("-");
   const todayEvents = events.filter((event) => event.date === today);
 
   const eventTitleElement = document.querySelector(".event-details h2");
@@ -49,13 +62,15 @@ const updateEventList = () => {
     eventTitleElement.textContent = "No Events Today";
   }
 
-  events.sort((a, b) => new Date(a.date) - new Date(b.date));
+  events.sort((a, b) => {
+    const dateA = new Date(a.date.split("-").reverse().join("-"));
+    const dateB = new Date(b.date.split("-").reverse().join("-"));
+    return dateA - dateB;
+  });
 
   if (events.length === 0) {
     noEventsMessageDiv.textContent = "No Events";
     noEventsMessageDiv.style.color = "red";
-  } else {
-    noEventsMessageDiv.textContent = "";
   }
 
   events.forEach((event, index) => {
@@ -108,6 +123,14 @@ const editEvent = (index) => {
   );
 
   if (newName && newDate) {
+    const today = new Date();
+    const inputDate = new Date(newDate);
+
+    if (inputDate < today) {
+      alert("Cannot set event on the past.");
+      return;
+    }
+
     events[index].name = newName;
     events[index].date = newDate;
     localStorage.setItem("events", JSON.stringify(events));
