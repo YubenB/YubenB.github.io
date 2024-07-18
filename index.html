@@ -22,15 +22,16 @@
       <div class="event-details">
         <h2>Event Title</h2>
         <div class="event-info">
-          <input type="text" placeholder="Event Name" />
-          <button>Set Reminder</button>
-          <span class="event-text">Don't miss it!</span>
+          <input type="text" id="eventName" placeholder="Event Name" />
+          <input type="date" id="eventDate" placeholder="Event Date" />
+          <button id="setReminder" onclick="onSubmit(event)">
+            Set Reminder
+          </button>
         </div>
       </div>
       <h2>Upcoming Events</h2>
-      <div class="upcoming-events">
-        <p>No events scheduled.</p>
-      </div>
+      <div class="upcoming-events"></div>
     </div>
+    <script src="/script/index.js"></script>
   </body>
 </html>

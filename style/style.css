@@ -1,3 +1,11 @@
+body {
+  font-family: "Raleway", sans-serif;
+  color: black; /* Ensures all text is black */
+  background-color: rgb(7, 8, 39);
+  margin: 0;
+  padding: 0;
+}
+
 @keyframes animate {
   0% {
     transform: translateY(0) rotate(0deg);
@@ -119,6 +127,7 @@ h2,
 p,
 .event-text {
   color: black;
+  font-family: "Raleway", sans-serif;
 }
 
 .center-box {
@@ -137,6 +146,17 @@ p,
   margin-bottom: 20px;
 }
 
+.event-info input[type="text"],
+.event-info input[type="date"] {
+  font-size: 16px;
+}
+
+.event-info input[type="text"]:focus,
+.event-info input[type="date"]:focus {
+  outline: none; /* Removes the default outline that browsers add */
+  box-shadow: none; /* Optionally remove the box-shadow if it was used */
+}
+
 .event-info {
   display: flex;
   justify-content: center;
@@ -145,10 +165,18 @@ p,
 }
 
 .event-info input {
+  border-top: 0;
+  border-left: 0;
+  border-right: 0;
+  border-color: blueviolet;
   padding: 5px;
 }
 
 .event-info button {
+  background-color: blueviolet;
+  color: white;
+  border: 0;
+  border-radius: 20px;
   padding: 5px 10px;
 }
 
