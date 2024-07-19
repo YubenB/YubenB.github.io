@@ -20,7 +20,8 @@ const onSubmit = (event) => {
 
   const today = new Date();
   const inputDate = new Date(eventDate);
-
+  today.setHours(0, 0, 0, 0);
+  inputDate.setHours(0, 0, 0, 0);
   if (inputDate < today) {
     alert("Cannot set event on the past.");
     return;
@@ -48,12 +49,10 @@ const updateEventList = () => {
   upcomingEventsDiv.innerHTML = "";
   noEventsMessageDiv.textContent = "";
 
-  const today = new Date()
-    .toLocaleDateString("en-GB")
-    .split("/")
-    .reverse()
-    .join("-");
-  const todayEvents = events.filter((event) => event.date === today);
+  const today = new Date();
+  const todayFormatted = today.toLocaleDateString("en-GB").split("/").join("-");
+
+  const todayEvents = events.filter((event) => event.date === todayFormatted);
 
   const eventTitleElement = document.querySelector(".event-details h2");
   if (todayEvents.length > 0) {
