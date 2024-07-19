@@ -19,7 +19,10 @@ const onSubmit = (event) => {
   }
 
   const today = new Date();
+  today.setHours(0, 0, 0, 0); // Set to the start of the day
+
   const inputDate = new Date(eventDate);
+  inputDate.setHours(0, 0, 0, 0); // Set to the start of the day
 
   if (inputDate < today) {
     alert("Cannot set event on the past.");
@@ -48,12 +51,12 @@ const updateEventList = () => {
   upcomingEventsDiv.innerHTML = "";
   noEventsMessageDiv.textContent = "";
 
-  const today = new Date()
-    .toLocaleDateString("en-GB")
-    .split("/")
-    .reverse()
-    .join("-");
-  const todayEvents = events.filter((event) => event.date === today);
+  // Get today's date in DD-MM-YYYY format
+  const today = new Date();
+  const todayFormatted = today.toLocaleDateString("en-GB").split("/").join("-");
+
+  // Filter today's events
+  const todayEvents = events.filter((event) => event.date === todayFormatted);
 
   const eventTitleElement = document.querySelector(".event-details h2");
   if (todayEvents.length > 0) {
@@ -62,17 +65,20 @@ const updateEventList = () => {
     eventTitleElement.textContent = "No Events Today";
   }
 
+  // Sort events by date
   events.sort((a, b) => {
     const dateA = new Date(a.date.split("-").reverse().join("-"));
     const dateB = new Date(b.date.split("-").reverse().join("-"));
     return dateA - dateB;
   });
 
+  // Display no events message if no events are found
   if (events.length === 0) {
     noEventsMessageDiv.textContent = "No Events";
     noEventsMessageDiv.style.color = "red";
   }
 
+  // Create and append event elements
   events.forEach((event, index) => {
     const eventElement = document.createElement("div");
     eventElement.classList.add("event-item");
@@ -91,6 +97,7 @@ const updateEventList = () => {
     upcomingEventsDiv.appendChild(eventElement);
   });
 
+  // Add event listeners to edit and delete buttons
   document.querySelectorAll(".edit-btn").forEach((button) => {
     button.addEventListener("click", (e) => {
       const index = e.target.closest("button").getAttribute("data-index");
