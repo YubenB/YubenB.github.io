@@ -222,7 +222,7 @@ const editEvent = (index) => {
 ## Usage
 
 - Open index.html with Live Server or any other local server setup.
-- The website will display a list of upcoming events fetched from data.json.
+- The website will display a list of upcoming events fetched from local storage.
 - Use the input fields and buttons to add, edit, or delete events.
 
 ## Contributing
