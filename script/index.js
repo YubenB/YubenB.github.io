@@ -81,10 +81,10 @@ const updateEventList = () => {
         <span class="event-name">${event.name}</span>
         <span class="event-date">${event.date}</span>
         <button class="edit-btn" data-index="${index}">
-          <img src=".../asset/edit.png" alt="Edit">
+          <img src="./asset/edit.png" alt="Edit">
         </button>
         <button class="delete-btn" data-index="${index}">
-          <img src=".../asset/delete.png" alt="Delete">
+          <img src="./asset/delete.png" alt="Delete">
         </button>
       </div>
     `;
