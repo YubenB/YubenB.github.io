@@ -1,7 +1,7 @@
 
 # Event Reminder Website
 
-This project is an event reminder website developed by Yuben Bauty and Gagah Pradana. The website allows users to add, view, and delete upcoming events, ensuring they never miss an important occasion.
+This project is an event reminder website developed by Yuben Bauty and Gagah Pradana. The website allows users to add, view, update, and delete upcoming events, ensuring they never miss an important occasion.
 
 ## Features
 
